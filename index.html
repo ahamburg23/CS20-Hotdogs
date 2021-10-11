@@ -1,0 +1,81 @@
+<html>
+
+    <head>
+        <title>Joe's Hotdogs</title>
+        <style>
+            div {
+                width: 240px;
+                column-count: 2;
+                column-rule-style: solid;
+                column-rule-width: 1px;
+                column-rule-color: lightblue;
+                column-width: 100px;
+                column-gap: 40px;
+                column-span: initial;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <script language="javascript">
+                var order = [];
+                answer = prompt("How many hotdogs would you like?");
+                order.push(parseInt(answer));
+                answer = prompt("How many orders of fries would you like?");
+                order.push(parseInt(answer));
+                answer = prompt("How many sodas would you like?")
+                order.push(parseInt(answer));
+                if (order[0] != 0) {
+                    document.write("Hotdog: <br>");
+                }
+                if (order[1] != 0) {
+                    document.write("Fries: <br>");
+                }
+                if (order[2] != 0) {
+                    document.write("Soda: <br>");
+                }
+                
+                var prices = [3.75, 2., 1.5]
+    
+                subtotal = 0;
+                for (let i = 0; i < 3; i++) {
+                    subtotal += order[i] * prices[i];
+                }
+    
+                document.write("Subtotal: <br>");
+                
+                discount = 0;
+                if (subtotal >= 20) {
+                    discount = subtotal * .1;
+                    document.write("Joe's Special: <br>");
+                }
+    
+                document.write("Tax: <br>");
+                document.write("Total: <br>");
+    
+                // Printing first prices 
+                for (let i = 0; i < 3; i++) {
+                    if (order[i] != 0) {
+                        document.write(order[i] + " * $" + prices[i].toFixed(2) + "<br>");
+                    }
+                }
+                document.write("$" + subtotal.toFixed(2) + "<br>");
+
+                // Calculating last numbers required
+                subtotal -= discount;
+                tax = subtotal * .0625;
+                total = subtotal + tax;
+
+                // Printing the remaining amounts
+
+                
+                if (discount != 0) {
+                    document.write("- $" + discount.toFixed(2) + "<br>");
+                }
+                document.write("$" + tax.toFixed(2) + "<br>");
+                document.write("$" + total.toFixed(2) + "<br>");
+            </script>
+        </div>
+    </body>
+</html>
